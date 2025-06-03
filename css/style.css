@@ -997,4 +997,43 @@ a:focus {
 }
 
 
+/* Service Overlay Effect */
+.service-container {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.service-image {
+  display: block;
+}
+
+.service-overlay {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 47, 108, 0.8);
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: .5s ease;
+}
+
+.service-container:hover .service-overlay {
+  bottom: 0;
+  height: 100%;
+}
+
+.overlay-text {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
 /*# sourceMappingURL=style.css.map */
