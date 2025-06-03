@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 
+
+  <!-- 44.7841692,-106.940957 -->
 <head>
   <!-- Basic -->
   <meta charset="utf-8" />
@@ -33,6 +35,11 @@
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
 
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    #map { width: 600px; height: 400px; }
+  </style>
+
 </head>
 
 <body>
@@ -45,7 +52,7 @@
           <nav class="navbar navbar-expand-lg custom_nav-container ">
             <a class="navbar-brand" href="index.html">
               <span>
-                Freight On Command
+                <img src="/images/logo-trimmed.png" class="logo-image">
               </span>
             </a>
 
@@ -174,84 +181,22 @@
           </p>
         </div>
         <div class="row">
-          <div class="col-md-6 ">
+          <div class="col-md-4 ">
             <div class="box ">
-              <div class="img-box">
-                <img src="images/s3.png" alt="">
-              </div>
-              <div class="detail-box">
-                <h5>
-                  Full Truckload (FTL)
-                </h5>
-                <p>
-                  Dedicated truck transportation for shipments that require an entire trailer. Ideal for time-sensitive deliveries and larger freight volumes, our FTL service connects you with reliable carriers to ensure efficient, direct delivery.
-                  The
-                  point of using
-                </p>
-                <a href="">
-                  Read More
-                </a>
-              </div>
+              <img src="/images/dryvan.png">
+              <h5>Dry Van</h5>
             </div>
           </div>
-          <div class="col-md-6 ">
+          <div class="col-md-4 ">
             <div class="box ">
-              <div class="img-box">
-                <img src="images/s2.png" alt="">
-              </div>
-              <div class="detail-box">
-                <h5>
-                  Less-than-Truckload (LTL)
-                </h5>
-                <p>
-                  Cost-effective solution for smaller shipments that do not require a full trailer. Our LTL service combines your freight with other shipments heading in the same direction, saving you money while maintaining reliable delivery schedules.
-                  The
-                  point of using
-                </p>
-                <a href="">
-                  Read More
-                </a>
-              </div>
+              <img src="/images/flatbed.png">
+              <h5>Flatbeds</h5>
             </div>
           </div>
-          <div class="col-md-6 ">
+          <div class="col-md-4 ">
             <div class="box ">
-              <div class="img-box">
-                <img src="images/s3.png" alt="">
-              </div>
-              <div class="detail-box">
-                <h5>
-                  Flatbed Trucks Transport Specialized Equipment
-                </h5>
-                <p>
-                  Professional flatbed, step deck, and specialized equipment services for oversized, heavy, or unusual shipments. Our specialized carrier network has the right equipment to transport your construction materials, machinery, or other non-standard freight safely.
-                  The
-                  point of using
-                </p>
-                <a href="">
-                  Read More
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 ">
-            <div class="box ">
-              <div class="img-box">
-                <img src="images/s4.png" alt="">
-              </div>
-              <div class="detail-box">
-                <h5>
-                  Intermodal Train Transport Drayage Services
-                </h5>
-                <p>
-                  Efficient container transportation services connecting ports, rail yards, and distribution centers. Our drayage and intermodal solutions optimize your supply chain by seamlessly integrating multiple transport modes for both domestic and international shipments.
-                  The
-                  point of using
-                </p>
-                <a href="">
-                  Read More
-                </a>
-              </div>
+              <img src="/images/drayage.png">
+              <h5>Drayage</h5>
             </div>
           </div>
         </div>
@@ -287,7 +232,7 @@
         </div>
         <div class="col-md-6 ">
           <div class="img-box">
-            <img src="images/about-img.jpg" alt="">
+            <img src="images/about-img.png" alt="">
           </div>
         </div>
 
@@ -301,7 +246,7 @@
 
   <section class="track_section layout_padding">
     <div class="track_bg_box">
-      <img src="images/track-bg.jpg" alt="">
+      <img src="images/track-bg.png" alt="">
     </div>
     <div class="container">
       <div class="row">
@@ -474,9 +419,20 @@
         </div>
         <div class="col-lg-7 col-md-6 px-0">
           <div class="map_container">
-            <div class="map">
-              <div id="googleMap"></div>
-            </div>
+            <div id="map"></div>
+
+            <!-- Leaflet JS -->
+            <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+            <script type="text/javascript">
+
+              var map = L.map('map').setView([44.7841692,-106.940957], 9); // [lat, lng], zoom level
+              console.log("leaflet: ", map);
+
+              L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              }).addTo(map);
+            </script>
           </div>
         </div>
       </div>
@@ -498,15 +454,15 @@
               <a href="">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                 <span>
-                  Location
+                  1309 Coffeen Ave STE 1200, Sheridan, WY, 82801
                 </span>
               </a>
-              <a href="">
-                <i class="fa fa-phone" aria-hidden="true"></i>
-                <span>
-                  Call (888) 555-SHIP
-                </span>
-              </a>
+              <!-- <a href=""> -->
+              <!--   <i class="fa fa-phone" aria-hidden="true"></i> -->
+              <!--   <span> -->
+              <!--     Call (888) 555-SHIP -->
+              <!--   </span> -->
+              <!-- </a> -->
               <a href="">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>
@@ -605,10 +561,6 @@
   </script>
   <!-- custom js -->
   <script type="text/javascript" src="js/custom.js"></script>
-  <!-- Google Map -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
-  </script>
-  <!-- End Google Map -->
 
 </body>
 
