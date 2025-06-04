@@ -165,6 +165,7 @@ a:focus {
   font-weight: bold;
   font-size: 24px;
   color: #000000;
+  margin-left: 20px;
 }
 
 .custom_nav-container {
