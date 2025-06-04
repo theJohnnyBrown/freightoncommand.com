@@ -988,12 +988,12 @@ a:focus {
 
 @media (max-width: 992px) {
     .navbar-brand .logo-image {
-        height: 76px;
+        height: 45px;
     }
 }
 
 .logo-image {
-    height: 100px;
+    height: 76px;
 }
 
 
